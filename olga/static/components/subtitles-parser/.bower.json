@@ -1,0 +1,14 @@
+{
+  "name": "subtitles-parser",
+  "homepage": "https://github.com/bazh/subtitles-parser",
+  "_release": "2654c77a64",
+  "_resolution": {
+    "type": "branch",
+    "branch": "master",
+    "commit": "2654c77a64cb66436f82b5311a1f3f2e46e6f867"
+  },
+  "_source": "git://github.com/bazh/subtitles-parser.git",
+  "_target": "*",
+  "_originalSource": "git://github.com/bazh/subtitles-parser.git",
+  "_direct": true
+}

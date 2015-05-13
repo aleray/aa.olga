@@ -1,0 +1,14 @@
+{
+  "name": "jQuery-caret-utilities",
+  "homepage": "https://github.com/garyharan/jQuery-caret-utilities",
+  "_release": "be2ceea294",
+  "_resolution": {
+    "type": "branch",
+    "branch": "master",
+    "commit": "be2ceea294a3390403458a7be11ddfd09a1fe85e"
+  },
+  "_source": "https://github.com/garyharan/jQuery-caret-utilities.git",
+  "_target": "*",
+  "_originalSource": "https://github.com/garyharan/jQuery-caret-utilities.git",
+  "_direct": true
+}

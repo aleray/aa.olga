@@ -1,0 +1,15 @@
+{
+  "name": "typogr.js",
+  "homepage": "https://github.com/ekalinin/typogr.js",
+  "version": "0.6.1",
+  "_release": "0.6.1",
+  "_resolution": {
+    "type": "version",
+    "tag": "0.6.1",
+    "commit": "cd1b0e902fe97d276be4b2ac5371041ab375269c"
+  },
+  "_source": "git://github.com/ekalinin/typogr.js.git",
+  "_target": "~0.6.1",
+  "_originalSource": "git://github.com/ekalinin/typogr.js.git",
+  "_direct": true
+}

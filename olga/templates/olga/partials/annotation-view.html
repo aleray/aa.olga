@@ -1,0 +1,38 @@
+<div class="controls hidden">
+    <a class="play fa fa-play"></a>
+    <a class="previous fa fa-step-backward disabled"></a>
+    <a class="next fa fa-step-forward disabled"></a>
+    <span class="timer">
+        <span class="current_time">00:00:00,000</span>
+        <span class="separator">/</span>
+        <span class="duration">00:00:00,000</span>
+    </span>
+</div>
+
+<div class="menu-top top">
+    <% if (isHead) { %>
+    <div draggable="false" title="drag box" class="icon icon-drag"></div>
+    <% } %>
+    <% if (canChange) { %>
+    <div draggable="false" title="edit box" class="icon icon-edit"></div>
+    <% if (isHead) { %>
+    <div draggable="false" title="delete box" class="icon icon-delete"></div>
+    <div draggable="false" title="import/export from/to srt/audacity markers!" class="icon icon-export"></div>
+    <div draggable="false" title="drag to connect" class="icon icon-target"></div>
+    <% } %>
+    <% } %>
+</div>
+
+<% if (isHead) { %>
+<div class="menu-left left">
+    <% if (canChange) { %>
+    <div draggable="false" title="toggle visibility" class="icon icon-visibility"></div>
+    <div draggable="false" title="toggle transition" class="icon icon-transition"></div>
+    <div draggable="false" title="set z-index" class="icon icon-layers"></div>
+    <% } %>
+</div>
+<% } %>
+
+<div class="wrapper <% if (isSlideshow) { %>slideshow<% } %> <% /* if (isMedia) { %>media<% } */ %>">
+    <%= body %>
+</div>

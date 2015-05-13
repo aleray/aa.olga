@@ -1,0 +1,13 @@
+{
+  "name": "marked",
+  "homepage": "https://github.com/aleray/marked",
+  "_release": "aa",
+  "_resolution": {
+    "type": "branch",
+    "branch": "aa",
+    "commit": "3206f19733d98a5949a19e9661df1f815671895c"
+  },
+  "_source": "http://github.com/aleray/marked.git",
+  "_target": "aa",
+  "_originalSource": "http://github.com/aleray/marked.git"
+}

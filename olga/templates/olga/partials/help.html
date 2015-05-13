@@ -1,0 +1,238 @@
+<ol>
+<li><a href="#getting-started">Getting started</a></li>
+<li><a href="#hotglue-interface">Hotglue interface</a></li>
+<li><a href="#syntax">Syntax</a></li>
+<li><a href="#layout">Layout</a></li>
+<li><a href="#extended-help">Extended help</a></li>
+</ol>
+<h1 id="getting-started">Getting started</h1>
+<h2>Create a new page</h2>
+<p>Two options:</p>
+<ol>
+<li>give your page a title in the url-field</li>
+<li>create a link from another page <code>[[Title of new page]]</code></li>
+</ol>
+<p>Use a capital letter for the first letter.</p>
+<p>For a collection page: <code>[[dc:isPartOf::Blabla]]</code></p>
+<h1 id="hotglue-interface">Hotglue interface</h1>
+<h2>Hotglue menu page level</h2>
+<h3>Save and retrieve a page</h3>
+<p><img alt="" src="/static/olga/png/icons/star.png" /></p>
+<p>Automatically the last version of a page is saved.
+Snapshot a page via the star in the hotglue-menu. Open the left sidebar and go
+to ‘history’ to revert to an earlier page. Don’t forget to snapshot the last
+version of your page.</p>
+<h3>Set permissions</h3>
+<p><img alt="" src="/static/olga/png/icons/ok.png" /></p>
+<p>By default a page is visible, but not editable by anonymous users. Open the
+hotglue menu and click on the thumb-up to change the permissions. Ask the
+administrator of OS to create a group for selected users.</p>
+<h3>Create a box</h3>
+<p><img alt="" src="/static/olga/png/icons/new.png" /></p>
+<p>Click on the ‘7bac’-icon in the hotglue menu. Click in the box and click on
+‘edit’.</p>
+<h3>Edit the right column + change layout of entire page</h3>
+<p><img alt="" src="/static/olga/png/icons/edit.png" /></p>
+<p>Click on the ‘edit’-icon in the hotglue menu. Here you can
+give your page another name
+make an introduction-note
+add a background image
+add a stylesheet, or add singular scripts for styling</p>
+<h2>Hotglue menu box level</h2>
+<h3>Edit box</h3>
+<p><img alt="" src="/static/olga/png/icons/edit.png" /></p>
+<h3>Drag box to other location</h3>
+<p><img alt="" src="/static/olga/png/icons/drag.png" /></p>
+<p>Click this icon and at the same time hold the ‘ctrl’-key: a grid helps you to position.</p>
+<h3>Delete box</h3>
+<p><img alt="" src="/static/olga/png/icons/delete.png" /></p>
+<h3>Set slideshow</h3>
+<p><img alt="" src="/static/olga/png/icons/target.png" /></p>
+<h3>Import and export Audacity</h3>
+<p><img alt="" src="/static/olga/png/icons/export.png" /></p>
+<h3>Set visibility of box</h3>
+<p><img alt="" src="/static/olga/png/icons/mask.png" /></p>
+<p>It will add the class ‘collapsed’ or ‘hidden’. Hidden means invisible for
+anonymous users. Collapsed will show only the title of the box, unless you
+hover over.</p>
+<h3>Set transition</h3>
+<p><img alt="" src="/static/olga/png/icons/marey.png" /></p>
+<h3>Set z-index</h3>
+<p><img alt="" src="/static/olga/png/icons/layers.png" /></p>
+<p>To set whether a box is positioned under or above another box. Drag left or
+right.</p>
+<h1 id="syntax">Syntax</h1>
+<h2>Creating links</h2>
+<h3>Link to other website</h3>
+<pre><code>[[ http://… ]]
+</code></pre>
+<p>add attribute <code>{: target="_self"}</code> if you want the page to open in the same
+window</p>
+<h3>Link to other Olga-page</h3>
+<pre><code>[[Title of linked page]]
+</code></pre>
+<p>add attribute <code>{:target="_self"}</code> if you want the page to open in the same
+window</p>
+<h3>Link to a box on same Olga-page</h3>
+<pre><code>[[#uuid annotation]]
+</code></pre>
+<h3>Link to a driver (or a specific time on that driver) on same Olga-page</h3>
+<pre><code>[[url of file#t=…]]{: target="multiplex"} 
+[[url of file#t=…]]{: style=“…” target="multiplex"}
+</code></pre>
+<p>Replace the text of the linked page by another text <code>[[url|new text]]</code></p>
+<p>eg.</p>
+<pre><code>[[Alessandro|Click here]]
+[[http://…|Click here]]
+</code></pre>
+<h3>Replace the text of the linked page by another text</h3>
+<pre><code>[[url|new text]]
+</code></pre>
+<p>eg:</p>
+<pre><code>[[Alessandro|Click here]]
+[[http://…|Click here]]
+</code></pre>
+<h2>Title and subsections in a box</h2>
+<p>Add title in meta-info.</p>
+<p>Headers in a box.</p>
+<pre><code># heading 1
+## heading 2
+### heading 3
+</code></pre>
+<h2>Embed images, video, sound</h2>
+<h3>Sound</h3>
+<pre><code>[[embed::http://]]
+[[embed::http://….ogg]]{: class='small'}
+</code></pre>
+<h3>Video</h3>
+<pre><code>[[embed::http://….]]
+</code></pre>
+<h3>Images</h3>
+<pre><code>[[embed::http://….jpg]]
+</code></pre>
+<h3>Filters</h3>
+<p>Black and white</p>
+<pre><code>[[ embed::http://  .jpg||bw ]]
+</code></pre>
+<p>Thumbnail</p>
+<pre><code>[[ embed::http://  .jpg||thumb ]]
+</code></pre>
+<p>Black and white &amp; Thumbnail</p>
+<pre><code>[[ embed::http://  .jpg||bw|thumb ]]
+</code></pre>
+<p>Resize</p>
+<pre><code>[[ embed::http://  .jpg||bw|resize:256 ]]
+</code></pre>
+<p>An image as link:</p>
+<pre><code>&lt;a href="http://www.jvea.org/" target="_blank"&gt;&lt;img src="http://repo.sarma.be/Zilver%20Flotations/A%20day%20with.jpg" /&gt;&lt;/a&gt;
+</code></pre>
+<h2>Synchronizing, slideshow and short-cuts</h2>
+<h3>Connect driver to annotation box</h3>
+<p>Paste its url in the ‘about’-metadata of the annotation box.</p>
+<h3>Connect box to main page to create general timeline</h3>
+<p>This is the default setting of the ‘about’-metadata of a box. The general
+timeline is automatically created by creating timecodes.</p>
+<h3>Connect a box to itself to create a slideshow</h3>
+<p>Drag the circles-icon in the hotglue menue of a box to the same box. Set
+‘class’-metadata on ‘active-only’</p>
+<h3>Use shortcuts</h3>
+<dl>
+<dt><code>CTRL + SHIFT + arrow up</code></dt>
+<dd>
+<dl>
+<dt>pause and play</dt>
+<dt><code>CTRL + SHIFT + arrow down</code></dt>
+<dd>
+<dl>
+<dt>paste time code</dt>
+<dt><code>CTRL + SHIFT + arrow right</code></dt>
+<dd>
+<dl>
+<dt>forward</dt>
+<dt><code>CTRL + SHIFT + arrow left</code></dt>
+<dd>rewind</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+<dt><code>8&lt;</code></dt>
+<dd>
+<dl>
+<dt>to set the duration of a section, default is 5sec</dt>
+<dt><code>8&lt; 00:00:10</code></dt>
+<dd>to set the duration of a section to 10 sec instead of default value 5 sec. From then on all sections are 10 sec.</dd>
+</dl>
+</dd>
+</dl>
+<h3>Set beginning and end time</h3>
+<p>Beginning time 10 sec:</p>
+<pre><code>http://repo.sarma.be/julien%20bruneau/ghost%201.webmsd.webm#t=10
+</code></pre>
+<p>End time 20 sec:</p>
+<pre><code>http://repo.sarma.be/julien%20bruneau/ghost%201.webmsd.webm#t=10,20
+</code></pre>
+<h2>Attributes under class</h2>
+<ul>
+<li>collapsed</li>
+<li>hidden</li>
+<li>active-only: active time only</li>
+<li>nosubdivision: to do away with the division lines in a box</li>
+<li>notimecodes</li>
+<li>non-automatic play</li>
+<li>hover-top: if you hover over a box, it will come front: is now by defaut</li>
+</ul>
+<p>No semicolons between the attributes!!
+If you don’t want any class attribute after you had tried some, you have to write “” to replace attributes</p>
+<h1 id="layout">Layout</h1>
+<h2>Attributes under style</h2>
+<ul>
+<li>z-index: slider</li>
+<li>left</li>
+<li>top</li>
+<li>color</li>
+<li>opacity</li>
+<li>font-style</li>
+<li>background-color</li>
+<li>outline-color</li>
+<li>outline</li>
+<li>font</li>
+<li>font-size</li>
+<li>text-align</li>
+<li>padding-left, -right, -top</li>
+<li>margin-top, -right…</li>
+<li>line-height</li>
+<li>letter-spacing</li>
+<li>text-indent</li>
+</ul>
+<h2>Change the colour of a part of the text</h2>
+<p>eg: I am <code>%%blue%%{: style="color: blue" }</code>, will produce: I am blue.
+eg: My background is <code>%%yellow%%{: style="background-color: yellow" }</code>, will produce: My background is yellow.</p>
+<h2>Change the colour of a hyperlink</h2>
+<pre><code>[[Page name]]{: style="color: pink; text-decoration: none” }
+</code></pre>
+<h2>Italic and bold</h2>
+<p><code>*word*</code> will make the section italic
+<code>**word**</code> will make the section bold</p>
+<h2>Add another stylesheet</h2>
+<p>Click on ‘edit’ in the page-related hotglue-menu. Add the url of your stylesheet.</p>
+<h2>Use more colours</h2>
+<p>eg: ‘rgb(0,255,0)’
+RGB-color charts: http://www.rapidtables.com/web/color/RGB_Color.htm</p>
+<h2>Include a blank space</h2>
+<pre><code>`%%space%%{: style="color: white" }`  or `{: style="color: transparent" }` if the background color of the box is not white.
+</code></pre>
+<h2>Make a list</h2>
+<pre><code>*  item 1
+*  item 2
+*  item 3
+
+-  item 1
+-  item 2
+-  item 3
+
+1.   item 1
+2.   item 2
+3.   item 3
+</code></pre>

@@ -1,0 +1,17 @@
+The code from this repository ("backends") was taken from django-rcsfield
+
+django-rcsfield
+<https://code.google.com/p/django-rcsfield/>
+Copyright (c) 2008, Arne Brodowski
+All rights reserved.
+
+The code is distributed under the New BSD License, see the LICENSE file within
+this directory, or see <http://opensource.org/licenses/BSD-3-Clause> for the
+terms of use.
+
+It felt necessary to "fork" the library as we wanted to adapt it to version django
+models. It is at the moment tighlty coupled with tastypie and our API Resource,
+this is why the code lives in the otherwise AGPL licensed olga.
+
+Thanks for the original authors Arne Brodowski and Jannis Leidel for providing
+this elegant code base.

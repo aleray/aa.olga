@@ -1,0 +1,24 @@
+<!DOCTYPE HTML>
+
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <title>{% block title %}Oralsite{% endblock %}</title>
+
+    {% block extrahead %}{% endblock %}
+
+    {% block css %}
+    <link rel="stylesheet" href="{{ STATIC_URL }}lib/css/reset.css" media="screen"/>
+    {% endblock %}
+</head>
+
+<body>
+{% block body %}{% endblock %}
+{% block js %}{% endblock %}
+
+{% if not debug %}
+<!-- Piwik statistics -->
+{% include "olga/partials/piwik.html" %}
+{% endif %}
+</body>
+</html>

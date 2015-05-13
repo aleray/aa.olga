@@ -1,0 +1,32 @@
+
+
+  "name": "oralsite",
+  "version": "0.0.0",
+  "authors": [
+    "(Alexandre Leray <alexandre@stdin.fr>)",
+    "(Eric Schrijver <eric@ericschrijver.nl>)"
+  ],
+  "description": "Oralsite",
+  "license": "GNU AGPL V3",
+  "homepage": "oralsite.be",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "<2",
+    "jquery-ui": "~1.10.2",
+    "underscore": "",
+    "backbone": "",
+    "backbone-tastypie": "https://github.com/PaulUithol/backbone-tastypie.git",
+    "marked": "http://github.com/aleray/marked.git#aa",
+    "jquery.contextual": "https://github.com/aleray/aa.jquery.contextual.git",
+    "jasmine": "1.3.x",
+    "js-yaml": "",
+    "js-yaml-front-matter": "https://github.com/dworthen/js-yaml-front-matter.git"
+  }
+}

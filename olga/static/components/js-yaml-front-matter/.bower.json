@@ -1,0 +1,14 @@
+{
+  "name": "js-yaml-front-matter",
+  "homepage": "https://github.com/dworthen/js-yaml-front-matter",
+  "version": "3.0.1",
+  "_release": "3.0.1",
+  "_resolution": {
+    "type": "version",
+    "tag": "v3.0.1",
+    "commit": "2eec5fb81883924728d22416a5393af1b45e6bd8"
+  },
+  "_source": "https://github.com/dworthen/js-yaml-front-matter.git",
+  "_target": "*",
+  "_originalSource": "https://github.com/dworthen/js-yaml-front-matter.git"
+}

@@ -1,0 +1,42 @@
+.icon {
+    width: 40px;
+    height: 40px;
+    background-image: url('img/icons.png');
+}
+.icon:hover {
+    background-image: url('img/icons-hover.png');
+}
+
+.icon1 {
+    background-position: 0 0;
+}
+.icon2 {
+    background-position: -40px 0;
+}
+.icon3 {
+    background-position: 0 -40px;
+}
+.icon4 {
+    background-position: -40px -40px;
+}
+.icon5 {
+    background-position: -80px 0;
+}
+.icon6 {
+    background-position: -80px -40px;
+}
+.icon7 {
+    background-position: -120px 0px;
+}
+.icon8 {
+    background-position: -120px -40px;
+}
+
+/*#canvas {*/
+    /*background-size: 100px 100px;*/
+    /*background-image: -webkit-linear-gradient(left, red 0px, red 1px, transparent 1px, transparent 80px, red 80px, red 81px, yellow 81px, yellow 100px);*/
+    /*background-image: -moz-linear-gradient(left, red 0px, red 1px, transparent 1px, transparent 80px, red 80px, red 81px, yellow 81px, yellow 100px);*/
+    /*background-image: -ms-linear-gradient(left, red 0px, red 1px, transparent 1px, transparent 80px, red 80px, red 81px, yellow 81px, yellow 100px);*/
+    /*background-image: -o-linear-gradient(left, red 0px, red 1px, transparent 1px, transparent 80px, red 80px, red 81px, yellow 81px, yellow 100px);*/
+    /*background-image: linear-gradient(to right, red 0px, red 1px, transparent 1px, transparent 80px, red 80px, red 81px, yellow 81px, yellow 100px);*/
+/*}*/

@@ -1,0 +1,1008 @@
+/* Fonts {{{ */
+@font-face {
+    font-family: 'Charis';
+    src: url('/static/lib/fonts/charissilcompact-b-webfont.eot');
+    src: url('/static/lib/fonts/charissilcompact-b-webfont.eot?#iefix') format('embedded-opentype'),
+         url('/static/lib/fonts/charissilcompact-b-webfont.woff') format('woff'),
+         url('/static/lib/fonts/charissilcompact-b-webfont.ttf') format('truetype'),
+         url('/static/lib/fonts/charissilcompact-b-webfont.svg#charis_sil_compactbold') format('svg');
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Charis';
+    src: url('/static/lib/fonts/charissilcompact-bi-webfont.eot');
+    src: url('/static/lib/fonts/charissilcompact-bi-webfont.eot?#iefix') format('embedded-opentype'),
+         url('/static/lib/fonts/charissilcompact-bi-webfont.woff') format('woff'),
+         url('/static/lib/fonts/charissilcompact-bi-webfont.ttf') format('truetype'),
+         url('/static/lib/fonts/charissilcompact-bi-webfont.svg#charis_sil_compactbold_italic') format('svg');
+    font-weight: bold;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Charis';
+    src: url('/static/lib/fonts/charissilcompact-i-webfont.eot');
+    src: url('/static/lib/fonts/charissilcompact-i-webfont.eot?#iefix') format('embedded-opentype'),
+         url('/static/lib/fonts/charissilcompact-i-webfont.woff') format('woff'),
+         url('/static/lib/fonts/charissilcompact-i-webfont.ttf') format('truetype'),
+         url('/static/lib/fonts/charissilcompact-i-webfont.svg#charis_sil_compactitalic') format('svg');
+    font-weight: normal;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Charis';
+    src: url('/static/lib/fonts/charissilcompact-r-webfont.eot');
+    src: url('/static/lib/fonts/charissilcompact-r-webfont.eot?#iefix') format('embedded-opentype'),
+         url('/static/lib/fonts/charissilcompact-r-webfont.woff') format('woff'),
+         url('/static/lib/fonts/charissilcompact-r-webfont.ttf') format('truetype'),
+         url('/static/lib/fonts/charissilcompact-r-webfont.svg#charis_sil_compactregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'News Cycle';
+    src: url('/static/lib/fonts/NewsCycle-Regular-webfont.eot');
+    src: url('/static/lib/fonts/NewsCycle-Regular-webfont.eot?#iefix') format('embedded-opentype'),
+         url('/static/lib/fonts/NewsCycle-Regular-webfont.woff') format('woff'),
+         url('/static/lib/fonts/NewsCycle-Regular-webfont.ttf') format('truetype'),
+         url('/static/lib/fonts/NewsCycle-Regular-webfont.svg#NewsCycleRegular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+/* }}} */
+
+/* Mixins {{{ */
+.transition (@prop: all, @time: 1s, @ease: linear, @delay: 0s) {
+    -webkit-transition: @prop @time @ease @delay;
+       -moz-transition: @prop @time @ease @delay;
+         -o-transition: @prop @time @ease @delay;
+        -ms-transition: @prop @time @ease @delay;
+            transition: @prop @time @ease @delay;
+}
+
+.box-sizing (@type: border-box) {
+    -webkit-box-sizing: @type;
+       -moz-box-sizing: @type;
+        -ms-box-sizing: @type;
+            box-sizing: @type;
+}
+
+.user-select(@argument: none) {
+    -webkit-user-select: @argument;
+       -moz-user-select: @argument;
+        -ms-user-select: @argument;
+            user-select: @argument;
+}
+
+.opacity(@opacity: 0.5) {
+       -moz-opacity: @opacity;
+     -khtml-opacity: @opacity;
+    -webkit-opacity: @opacity;
+            opacity: @opacity;
+            @opperc: @opacity * 100;
+         -ms-filter: ~"progid:DXImageTransform.Microsoft.Alpha(opacity=@{opperc})";
+             filter: ~"alpha(opacity=@{opperc})";
+}
+
+.box-shadow(@arguments) {
+    -webkit-box-shadow: @arguments;
+       -moz-box-shadow: @arguments;
+            box-shadow: @arguments;
+}
+
+.ellipsis {
+    white-space: nowrap;
+    overflow: hidden;
+    -o-text-overflow: ellipsis;  // for Opera 9 & 10
+    text-overflow: ellipsis;  // IE 6+, FF 7+, Op 11+, Saf 1.3+, Chr 1+
+}
+
+/*
+See <http://jsfiddle.net/decx/sffs5/1/> for a generative version of it
+<http://lea.verou.me/css3patterns/#blueprint-grid>
+*/
+
+.grid(@major-color: rgba(255, 0, 0, 1), @minor-color: rgba(0,255,255,.3)) {
+    background-attachment: local;
+    background-size: 100px 100px, 100px 100px, 20px 20px, 20px 20px;
+    background-position: -1px -1px, -1px -1px, -1px -1px, -1px -1px;
+    background-image: -webkit-linear-gradient(top, @major-color 1px, transparent 1px),
+                      -webkit-linear-gradient(left, @major-color 1px, transparent 1px),
+                      -webkit-linear-gradient(top, @minor-color 1px, transparent 1px),
+                      -webkit-linear-gradient(left, @minor-color 1px, transparent 1px);
+    background-image: -moz-linear-gradient(top, @major-color 1px, transparent 1px),
+                      -moz-linear-gradient(left, @major-color 1px, transparent 1px),
+                      -moz-linear-gradient(top, @minor-color 1px, transparent 1px),
+                      -moz-linear-gradient(left, @minor-color 1px, transparent 1px);
+    background-image: -ms-linear-gradient(top, @major-color 1px, transparent 1px),
+                      -ms-linear-gradient(left, @major-color 1px, transparent 1px),
+                      -ms-linear-gradient(top, @minor-color 1px, transparent 1px),
+                      -ms-linear-gradient(left, @minor-color 1px, transparent 1px);
+    background-image: -o-linear-gradient(top, @major-color 1px, transparent 1px),
+                      -o-linear-gradient(left, @major-color 1px, transparent 1px),
+                      -o-linear-gradient(top, @minor-color 1px, transparent 1px),
+                      -o-linear-gradient(left, @minor-color 1px, transparent 1px);
+    background-image: linear-gradient(to bottom, @major-color 1px, transparent 1px),
+                      linear-gradient(to right, @major-color 1px, transparent 1px),
+                      linear-gradient(to bottom, @minor-color 1px, transparent 1px),
+                      linear-gradient(to right, @minor-color 1px, transparent 1px);
+}
+/* }}} */
+
+
+/* Layout {{{ */
+html,
+body {
+    width: 100%;
+    height: 100%;
+    word-wrap: break-word;
+}
+
+#tools,
+#sidebar,
+#canvas {
+    .box-sizing(border-box);
+}
+
+#tools {
+    position: fixed;
+    width: 290px;
+    top: 0;
+    left: -290px;
+    bottom: 0;
+    padding: 13px;
+    z-index: 9999999999999999;
+    .transition(left, 250ms, ease-out, 0s);
+    background-color: white;
+
+    .show-tool & {
+        left: 0px;
+    }
+
+    .toggleDrawer {
+        cursor: default;
+        position: absolute;
+        left: 300px;
+        top: 10px;
+        z-index: 9999999999999;
+    }
+
+    .current {
+        outline: 1px solid black;
+    }
+}
+
+#sidebar {
+    position: fixed;
+    width: 290px;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 999999;
+    .transition(right, 250ms, ease-out, 0s);
+
+    .hide-sidebar & {
+        right: -290px;
+    }
+
+    .toggleDrawer {
+        cursor: default;
+        position: absolute;
+        right: 300px;
+        top: 10px;
+    }
+}
+
+.sidebar__wrapper {
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    padding: 13px;
+    overflow: auto;
+}
+
+#canvas {
+    position: fixed;
+    right: 290px;
+    left: 0px;
+    top: 35px;
+    bottom: 0;
+    overflow: auto;
+    .transition(all, 250ms, ease-out, 0s);
+
+    .show-tool & {
+        left: 290px;
+    }
+
+    .hide-sidebar & {
+        right: 0px;
+    }
+
+    > .wrapper {
+        width: 100%;
+        height: 100%;
+
+    }
+}
+
+#timeline {
+    position: fixed;
+    left: 40px;
+    top: 0;
+    right: 0;
+    height: 30px;
+    overflow: auto;
+}
+/* }}} */
+
+
+/* Styles {{{ */
+
+@base-line-height: 19px;
+@base-font-size: 13px;
+
+body {
+    font-family: 'Charis', sans;
+    font-size: @base-font-size;
+    line-height: @base-line-height;
+}
+
+strong {
+    font-weight: bold;
+}
+
+em {
+    font-style: italic;
+}
+
+p, ol, ul, blockquote {
+    margin-bottom: @base-line-height;
+}
+
+/*p + p {*/
+    /*text-indent: .5 * @base-line-height;*/
+/*}*/
+
+pre, code {
+    font-family: monospace, 'NotCourierSans';
+}
+
+h1 {
+    font-size: 2 * @base-font-size;
+    line-height: 2 * @base-line-height;
+}
+
+h2 {
+    font-size: 1.5 * @base-font-size;
+    line-height: 2 * @base-line-height;
+}
+
+h3 {
+    font-size: 1.17 * @base-font-size;
+    line-height: @base-line-height;
+}
+
+h4 {
+    font-size: @base-font-size;
+    line-height: @base-line-height;
+}
+
+h5 {
+    font-size: 0.83 * @base-font-size;
+    line-height: @base-line-height;
+}
+
+h6 {
+    font-size: 0.75 * @base-font-size;
+    line-height: @base-line-height;
+}
+blockquote {
+    margin-left: 2 * @base-line-height;
+}
+
+
+/** The Sidebar **/
+
+#sidebar {
+    font-family: 'News Cycle', sans;
+    font-size: 15px;
+    line-height: 20px;
+    color: darkslategrey;
+
+    hgroup {
+        margin: 0;
+        position: relative;
+        top: 5px;
+        padding-bottom: 19px;
+
+        h1 {
+            font-size: 32px;
+            line-height: 36px;
+        }
+    }
+
+    p + p {
+        margin-bottom: 20px;
+    }
+
+    fieldset {
+        border: 1px solid #ccc;
+        border-radius: 6px;
+    }
+
+    label {
+        display: block;
+    }
+
+    ul.tags {
+        margin: 2px 0 0 13px;
+        overflow: hidden;
+        margin-bottom:15px;
+
+        li {
+            float: left;
+            border: 1px solid #ccc;
+            margin: 2px 2px;
+            padding: 0px 2px 2px 4px;
+            border-radius: 7px;
+
+            &.add {
+                background-color: #ccc;
+                color: white;
+            }
+
+            &.add:hover,
+            span.del:hover {
+                cursor: pointer;
+            }
+
+            span {
+                font-size: 16px;
+                font-family: "Nimbus Sans L", "Free Sans", "Helvetica", "Arial";
+            }
+        }
+    }
+
+    #login-link,
+    #logout-link {
+        cursor: pointer;
+    }
+}
+
+/* The Error Box */
+
+.error {
+    width: 300px;
+    position: fixed;
+    bottom: 13px;
+    left: 13px;
+    padding: 13px;
+    display: none;
+    font-size: 13px;
+    background-color: lightgreen;
+
+    h1 {
+        font-size: inherit;
+        line-height: inherit;
+        font-weight: bold;
+    }
+
+    p {
+        margin-bottom: 0;
+    }
+}
+
+/** The Annotation Box **/
+
+#canvas > section {
+    position: absolute !important;
+    top: 20px;
+    left: 20px;
+
+    &.drop-hover {
+        .box-shadow(0px 0px 3px 3px yellow);
+    }
+
+    .menu-top,
+    .menu-left {
+        z-index: 999999999;
+        display: none;
+        position: absolute;
+    }
+
+    .menu-left {
+        top: 0;
+
+        &.left {
+            left: -45px;
+        }
+
+        &.right {
+            right: -50px;
+        }
+
+        .icon {
+            margin-bottom: 5px;
+        }
+    }
+
+    .menu-top {
+        left: 0;
+        white-space: nowrap;
+
+        &.top {
+            top: -45px;
+        }
+
+        &.bottom {
+            bottom: -50px;
+        }
+
+        .icon {
+            margin-right: 5px;
+            display: inline-block;
+        }
+    }
+
+    > textarea {
+        position: relative;
+        .box-sizing(border-box);
+        width: 300px;
+        height: 400px;
+        border: none;
+        outline: 1px solid #ccc;
+        outline-offset: 0;
+        padding: 5px;
+        resize: none;
+    }
+
+    > .wrapper {
+        // if set to absolute the section element does not get a size and the
+        // layout of the menu gets broken
+        position: relative !important;
+
+        // I'd like to use border-box but there is a bug with jquery ui
+        // resizable. See <http://bugs.jqueryui.com/ticket/8932>
+        // maybe this can help?
+        // <http://blog.jquery.com/2012/08/16/jquery-1-8-box-sizing-width-csswidth-and-outerwidth/>
+        .box-sizing(padding-box);
+        top: 0 !important;
+        left: 0 !important;
+        width: 300px;
+        height: 400px;
+        overflow: auto;
+        background-color: white;
+        outline: 1px solid #ccc;
+        padding: 5px;
+
+        iframe {
+            opacity: 1 !important;
+            pointer-events: auto !important;
+        }
+
+        section[typeof="aa:annotation"] {
+            border-top: 1px solid whitesmoke;
+            margin-top: -1px;
+            padding-bottom: 16px;
+            .transition(background-color, 250ms, ease-out, 0s);
+
+            &.active {
+                background-color: paleGreen;
+            }
+
+            span[property="aa:begin"],
+            span[property="aa:end"] {
+                color: gray;
+                font-size: smaller;
+
+                &:hover {
+                    cursor: pointer;
+                    color: blue;
+                }
+            }
+
+            span[property="aa:begin"] {
+                &:after {
+                    content: "\00A0\2192\00A0";
+                }
+
+                &:nth-last-child(2):after {
+                    content: "\00A0\2192\00A0 ?";
+                }
+            }
+
+            span[property="aa:end"] {
+                &.deduced {
+                    &:before {
+                        content: "(";
+                    }
+
+                    &:after {
+                        content: ")";
+                    }
+                }
+            }
+        }
+    }
+
+    &.focused {
+        .menu-top,
+        .menu-left {
+            display: block;
+        }
+
+        textarea,
+        .wrapper {
+            outline: 3px solid paleGreen!important;
+        }
+
+        textarea {
+            z-index: 999999;
+        }
+    }
+
+    /** This is triggered by the ‘hidden’ class: the annotation box will be invisible to those not logged in.
+     *  Logged in users will see a semi-opaque box. **/
+    &.hidden {
+        .wrapper {
+            .opacity(0.5);
+        }
+    }
+
+    /** This is triggered by the ‘collapsed’ class: the box will have a look of being collapsed on initial load */
+    &.collapsed:not(.editing) {
+        height: auto !important;
+
+        &:before {
+            padding: 5px;
+            display: block;
+            content: "\25B8  " attr(title);
+            .ellipsis();
+        }
+
+        .wrapper {
+            display: none;
+        }
+
+       /*   FIXME this is a stop gap solution: the collapsed box will show the original box as well, as you hover over it
+        *  It would be better to do a solution where you have to click, but that’s more involved an probably impossible in
+        * CSS alone. */
+        &:hover .wrapper {
+            display: inherit;
+        }
+
+    }
+
+
+    /** This is triggered by the ‘active-only’ class: only the currently active annotations will be visible **/
+    &.active-only > div.wrapper {
+        & .active {
+            background-color: inherit;
+            height: inherit;
+            padding: inherit;
+        }
+
+        & section[typeof="aa:annotation"] {
+            display: none;
+
+            &.active {
+                display: block;
+                background-color: inherit;
+            }
+        }
+    }
+
+    /** This is triggered by the ‘nosubdivision’ class: we won’t see lines between the different annotations **/
+    &.nosubdivision > .wrapper section[typeof="aa:annotation"] {
+        border-top: none;
+    }
+
+
+    ul li:before {
+        content: "– ";
+    }
+
+    ol {
+        list-style: decimal inside;
+    }
+}
+
+.embed.hosted {
+    position: relative;
+    padding-bottom: 56.25%;
+    height: 0;
+    overflow: hidden;
+    max-width: 100%;
+    height: auto;
+    iframe, object, embed {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+    }
+}
+
+/* Not effective yet */
+.anonymous #tools {
+    display: none;
+}
+
+.anonymous #canvas > section {
+    /* When hovering over an annotation box, put in front.
+     * We can only do this for logged-out users, as logged-in users
+     * need to have manual control over the stacking of the boxes */
+    &:hover {
+      z-index: 9999999 !important;
+    }
+
+    &.hidden {
+        display: none;
+    }
+}
+
+body {
+   .user-select(none);
+}
+
+.icon {
+   .user-select(none);
+}
+
+
+
+#canvas > section .wrapper {
+   .user-select(text);
+}
+
+#page-meta hgroup,
+#tab-introduction {
+   .user-select(text);
+}
+
+.grid {
+    .grid();
+}
+
+/* Video controls */
+
+.controls {
+    line-height: 16px;
+
+    .controls-wrapper {
+        padding: 5px 5px 0px 5px;
+    }
+
+    a {
+        color: #000;
+        font-size: 16px;
+    }
+    a.fa:hover {
+        cursor: pointer;
+        color: paleGreen;
+    }
+    a.disabled, a.disabled:hover {
+        color: #ccc;
+        cursor: initial;
+    }
+    .timer {
+        display: inline-block;
+        width: 160px;
+        margin-left: 5px;
+        font-family: 'News Cycle', sans;
+        font-size: 11px;
+    }
+
+    &.hidden {
+      display: none;
+    }
+}
+
+.slideshow .controls .timer {
+    display: none;
+}
+
+.mini-player {
+    background-size: 100% 100%;
+}
+
+.mini-player.paused {
+    background-image: url(/static/olga/png/play.png);
+}
+.mini-player.paused:hover {
+    background-image: url(/static/olga/png/play_hover.png);
+    cursor: pointer;
+}
+.mini-player.playing {
+    background-image: url(/static/olga/png/pause.png);
+}
+.mini-player.playing:hover {
+    background-image: url(/static/olga/png/pause_hover.png);
+    cursor: pointer;
+}
+
+.fa {
+    font-size: 14px;
+    color: darkGrey;
+    cursor: pointer;
+
+    &:hover {
+        color: inherit;
+    }
+}
+
+#revisions_browser_prev {
+    float: left;
+}
+
+#revisions_browser_next {
+    float: right;
+}
+
+#revisions_browser_prev:before {
+    content: "← ";
+}
+
+#revisions_browser_next:after {
+    content: " →";
+}
+
+#revisions_browser:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.revision_list p {
+    margin: 0;
+}
+
+.revision_list blockquote {
+    margin: 0 0 19px 0;
+}
+/* UI */
+
+/* }}} */
+
+.popup-wrapper {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 999999999999;
+    background: rgba(0,0,0,0.6667);
+    text-align: center;
+
+    &:before {
+        position: relative;
+        height: 100%;
+        content: "";
+        display: inline-block;
+        vertical-align: middle;
+    }
+
+    .popup {
+        display: inline-block;
+        vertical-align: middle;
+        background-color: white;
+        padding: 30px;
+
+        textarea {
+            width: 400px;
+            height: 300px;
+        }
+    }
+}
+
+.ui-tabs {
+    .ui-tabs-nav {
+        border-bottom: 2px solid currentcolor;
+
+        li {
+            display: inline-block;
+            .opacity(0.5);
+
+            &.ui-tabs-active {
+                .opacity(1);
+            }
+
+            a {
+                text-decoration: none;
+                color: inherit;
+                font-size: 11px;
+                text-transform: uppercase;
+            }
+        }
+
+    }
+}
+
+#commit-list {
+    li {
+        margin-bottom: 18px;
+    }
+
+}
+
+.ui-resizable-handle { z-index: auto !important; }
+/* No ugly jquery ui icon */
+.ui-resizable-se { background-image: none !important; }
+
+.ui-resizable { position: relative;}
+.ui-resizable-handle { position: absolute;font-size: 0.1px;z-index: 99999; display: block;}
+.ui-resizable-disabled .ui-resizable-handle, .ui-resizable-autohide .ui-resizable-handle { display: none; }
+/*.ui-resizable-n { cursor: n-resize; height: 7px; width: 100%; top: -5px; left: 0; }*/
+.ui-resizable-s { cursor: s-resize; height: 7px; width: 100%; bottom: 0px; left: 0; }
+.ui-resizable-e { cursor: e-resize; width: 7px; right: 0px; top: 0; height: 100%; }
+/*.ui-resizable-w { cursor: w-resize; width: 7px; left: -5px; top: 0; height: 100%; }*/
+.ui-resizable-se { cursor: se-resize; width: 12px; height: 12px; right: 0px; bottom: 0px; }
+/*.ui-resizable-sw { cursor: sw-resize; width: 9px; height: 9px; left: -5px; bottom: -5px; }*/
+/*.ui-resizable-nw { cursor: nw-resize; width: 9px; height: 9px; left: -5px; top: -5px; }*/
+/*.ui-resizable-ne { cursor: ne-resize; width: 9px; height: 9px; right: -5px; top: -5px;}*/
+
+
+video,
+audio,
+img {
+    max-width: 100%;
+}
+
+
+/* move up */
+.notimecodes span[property="aa:begin"],
+.notimecodes span[property="aa:end"] {
+    display: none;
+}
+
+.nosubdivisions section {
+    border-top: none;
+}
+
+.icon {
+    width: 40px;
+    height: 40px;
+}
+
+.icon-layers {
+    background-image: url('/static/olga/png/icons/layers.png');
+
+    &:hover {
+        background-image: url('/static/olga/png/icons/layers-hover.png');
+    }
+}
+.icon-delete {
+    background-image: url('/static/olga/png/icons/delete.png');
+
+    &:hover {
+        background-image: url('/static/olga/png/icons/delete-hover.png');
+    }
+}
+.icon-drag {
+    background-image: url('/static/olga/png/icons/drag.png');
+    cursor: move;
+
+    &:hover {
+        background-image: url('/static/olga/png/icons/drag-hover.png');
+    }
+}
+.icon-edit {
+    background-image: url('/static/olga/png/icons/edit.png');
+
+    &:hover {
+        background-image: url('/static/olga/png/icons/edit-hover.png');
+    }
+}
+.icon-star {
+    background-image: url('/static/olga/png/icons/star.png');
+
+    &:hover {
+        background-image: url('/static/olga/png/icons/star-hover.png');
+    }
+}
+.icon-new {
+    background-image: url('/static/olga/png/icons/new.png');
+
+    &:hover {
+        background-image: url('/static/olga/png/icons/new-hover.png');
+    }
+}
+.icon-layout {
+    background-image: url('/static/olga/png/icons/layout.png');
+
+    &:hover {
+        background-image: url('/static/olga/png/icons/layout-hover.png');
+    }
+}
+.icon-ruler {
+    background-image: url('/static/olga/png/icons/ruler.png');
+
+    &:hover {
+        background-image: url('/static/olga/png/icons/ruler-hover.png');
+    }
+}
+.icon-pack {
+    background-image: url('/static/olga/png/icons/pack.png');
+
+    &:hover {
+        background-image: url('/static/olga/png/icons/pack-hover.png');
+    }
+}
+.icon-ok {
+    background-image: url('/static/olga/png/icons/ok.png');
+
+    &:hover {
+        background-image: url('/static/olga/png/icons/ok-hover.png');
+    }
+}
+.icon-cancel {
+    background-image: url('/static/olga/png/icons/delete.png');
+
+    &:hover {
+        background-image: url('/static/olga/png/icons/delete-hover.png');
+    }
+}
+.icon-galaxy {
+    background-image: url('/static/olga/png/icons/galaxy.png');
+
+    &:hover {
+        background-image: url('/static/olga/png/icons/galaxy-hover.png');
+    }
+}
+.icon-target {
+    background-image: url('/static/olga/png/icons/target.png');
+
+    &:hover {
+        background-image: url('/static/olga/png/icons/target-hover.png');
+    }
+}
+.icon-transition {
+    background-image: url('/static/olga/png/icons/marey.png');
+
+    &:hover {
+        background-image: url('/static/olga/png/icons/marey-hover.png');
+    }
+}
+.icon-visibility {
+    background-image: url('/static/olga/png/icons/mask.png');
+
+    &:hover {
+        background-image: url('/static/olga/png/icons/mask-hover.png');
+    }
+}
+.icon-export {
+    background-image: url('/static/olga/png/icons/export.png');
+
+    &:hover {
+        background-image: url('/static/olga/png/icons/export-hover.png');
+    }
+}
+
+
+/* Because scrubbing with the seek bar is not working to satisfaction yet, it is better not to display the seekbar—
+ we provide a progress bar that provides visual feedback on where we are in the timeline */
+
+#seek-bar {
+    display: none;
+}
+
+#faux-seek-bar {
+    display: inline-block;
+    position: relative;
+    height: 9px;
+    border: 1px solid #ccc;
+    width: 100px;
+}
+
+#faux-seek-bar-interior {
+    background-color: blue;
+    width: 50px;
+    position: absolute;
+    left: 0; top: 0; bottom: 0;
+}

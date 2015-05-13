@@ -1,0 +1,24 @@
+{
+  "name": "backbone-associations",
+  "version": "0.6.0",
+  "main": "./backbone-associations.js",
+  "dependencies": {
+    "backbone": "~1.1.0"
+  },
+  "ignore": [
+    "docs",
+    "test",
+    "*.yml"
+  ],
+  "homepage": "https://github.com/dhruvaray/backbone-associations",
+  "_release": "0.6.0",
+  "_resolution": {
+    "type": "version",
+    "tag": "v0.6.0",
+    "commit": "d11a51dd240d5552b7a31b92444e236a17bd783d"
+  },
+  "_source": "git://github.com/dhruvaray/backbone-associations.git",
+  "_target": "~0.6.0",
+  "_originalSource": "backbone-associations",
+  "_direct": true
+}

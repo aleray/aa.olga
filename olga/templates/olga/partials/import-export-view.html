@@ -1,0 +1,31 @@
+<div class="popup">
+    <p>Download as:</p>
+    <ul>
+        <li><a href="data:application/octet-stream;charset=utf-8;base64,<%= audacityData %>" download="<%= name %>.txt" target="_blank">audacity markers</a></li>
+        <li><a href="data:application/octet-stream;charset=utf-8;base64,<%= srtData %>" download="<%= name %>.srt" target="_blank">subrip (srt file)</a></li>
+    </ul>
+
+    <hr />
+
+    <% if (window.File && window.FileReader && window.FileList && window.Blob) { %>
+        <p>Import:</p>
+        <form id="import-form">
+            <p>
+                <input type="radio" name="type" value="audacity" checked /> Audacity
+                <input type="radio" name="type" value="srt" /> SRT
+            </p>
+            <p>
+                <input type="file" id="file" name="file" />
+                <input type="submit" name="import" value="import" />
+            </p>
+        </form>
+    <% } else { %>
+        <p>The File APIs are not fully supported in this browser</p>
+    <% } %>
+
+    <form id="dialog-form">
+        <p>
+            <input type="button" value="close" name="cancel" />
+        </p>
+    </form>
+</div>

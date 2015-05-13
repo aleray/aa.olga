@@ -1,0 +1,46 @@
+<div class="popup">
+    <form id="dialog-form">
+
+        <p>
+            <label for="visibleby">Visible by</label><br />
+            <select name="visitors" multiple="multiple">
+                <% users.each(function(user) { %>
+                <option value="<%= user.get('id') %>"
+                    <% if (_.contains(can_view_ids, user.get('id'))) { %> selected<% } %>
+                    >
+                    <%= user.get('username') %></option>
+                <% }); %>
+            </select>
+        </p>
+
+        <p>
+            <label for="editors">Editable by</label><br />
+            <select name="editors" multiple="multiple">
+                <% users.each(function(user) { %>
+                <option value="<%= user.get('id') %>"
+                    <% if (_.contains(can_change_ids, user.get('id'))) { %> selected<% } %>
+                    >
+                    <%= user.get('username') %></option>
+                <% }); %>
+            </select>
+        </p>
+
+
+        <p>
+            <label for="administrators">Administrated by</label><br />
+            <select name="administrators" multiple="multiple">
+                <% users.each(function(user) { %>
+                <option value="<%= user.get('id') %>"
+                    <% if (_.contains(can_administer_ids, user.get('id'))) { %> selected<% } %>
+                    >
+                    <%= user.get('username') %></option>
+                <% }); %>
+            </select>
+        </p>
+
+        <p>
+            <input type="button" value="cancel" name="cancel" />
+            <input type="submit" value="submit" name="submit" />
+        </p>
+    </form>
+</div>

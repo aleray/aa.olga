@@ -1,0 +1,13 @@
+{
+  "name": "jquery.contextual",
+  "homepage": "https://github.com/aleray/aa.jquery.contextual",
+  "_release": "master",
+  "_resolution": {
+    "type": "branch",
+    "branch": "master",
+    "commit": "105337fdc274219119d602504aa35b991488c416"
+  },
+  "_source": "https://github.com/aleray/aa.jquery.contextual.git",
+  "_target": "*",
+  "_originalSource": "https://github.com/aleray/aa.jquery.contextual.git"
+}
