@@ -74,15 +74,7 @@
 <!--<link rel="stylesheet" href="{{ STATIC_URL }}components/jquery-ui/themes/base/minified/jquery-ui.min.css">-->
 <link rel="stylesheet" href="{{ STATIC_URL }}components/font-awesome/css/font-awesome.css">
 
-{% if debug %}
-<!-- This is the client-side way to compile less and an ok choice for local dev -->
-<link rel="stylesheet/less" type="text/css" media="all" href="{{ STATIC_URL }}olga/css/aa.wiki.less" />
-{% else %}
-{% compress css %}
-<!-- This is the nifty django-compressor way to compile your less files in css -->
-<link type="text/less" rel="stylesheet" href="{{ STATIC_URL }}olga/css/aa.wiki.less" charset="utf-8">
-{% endcompress %}
-{% endif %}
+<link rel="stylesheet" href="{{ STATIC_URL }}olga/css/olga.css" />
 {% endblock %}
 
 
@@ -124,11 +116,6 @@
 
 {% block js %}
 {{ block.super }}
-
-{% if debug %}
-<!-- This is the client-side way to compile less and an ok choice for local dev -->
-<script src="{{ STATIC_URL }}components/less/dist/less-1.5.1.min.js"></script>
-{% endif %}
 
 <!-- Disabled for now as we don't use it -->
 <!--<script src="{{ STATIC_URL }}components/typogr.js/typogr.min.js"></script>-->
