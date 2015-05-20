@@ -512,6 +512,12 @@ blockquote {
         }
     }
 
+    &.controls-hidden {
+        .controls {
+            display: none;
+        }
+    }
+
     /** This is triggered by the ‘collapsed’ class: the box will have a look of being collapsed on initial load */
     &.collapsed:not(.editing) {
         height: auto !important;

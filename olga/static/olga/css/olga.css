@@ -379,6 +379,9 @@ blockquote {
     -ms-filter: progid:DXImageTransform.Microsoft.Alpha(opacity=50);
     filter: alpha(opacity=50);
 }
+#canvas > section.controls-hidden .controls {
+    display: none;
+}
 #canvas > section.collapsed:not(.editing) {
     height: auto !important;
     /*   FIXME this is a stop gap solution: the collapsed box will show the original box as well, as you hover over it
