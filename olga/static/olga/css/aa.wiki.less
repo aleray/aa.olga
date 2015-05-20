@@ -486,49 +486,6 @@ blockquote {
             pointer-events: auto !important;
         }
 
-        section[typeof="aa:annotation"] {
-            border-top: 1px solid whitesmoke;
-            margin-top: -1px;
-            padding-bottom: 16px;
-            .transition(background-color, 250ms, ease-out, 0s);
-
-            &.active {
-                background-color: paleGreen;
-            }
-
-            span[property="aa:begin"],
-            span[property="aa:end"] {
-                color: gray;
-                font-size: smaller;
-
-                &:hover {
-                    cursor: pointer;
-                    color: blue;
-                }
-            }
-
-            span[property="aa:begin"] {
-                &:after {
-                    content: "\00A0\2192\00A0";
-                }
-
-                &:nth-last-child(2):after {
-                    content: "\00A0\2192\00A0 ?";
-                }
-            }
-
-            span[property="aa:end"] {
-                &.deduced {
-                    &:before {
-                        content: "(";
-                    }
-
-                    &:after {
-                        content: ")";
-                    }
-                }
-            }
-        }
     }
 
     &.focused {
@@ -610,6 +567,50 @@ blockquote {
 
     ol {
         list-style: decimal inside;
+    }
+}
+
+section[typeof="aa:annotation"] {
+    border-top: 1px solid whitesmoke;
+    margin-top: -1px;
+    padding-bottom: 16px;
+    .transition(background-color, 250ms, ease-out, 0s);
+
+    &.active {
+        background-color: paleGreen;
+    }
+
+    span[property="aa:begin"],
+    span[property="aa:end"] {
+        color: gray;
+        font-size: smaller;
+
+        &:hover {
+            cursor: pointer;
+            color: blue;
+        }
+    }
+
+    span[property="aa:begin"] {
+        &:after {
+            content: "\00A0\2192\00A0";
+        }
+
+        &:nth-last-child(2):after {
+            content: "\00A0\2192\00A0 ?";
+        }
+    }
+
+    span[property="aa:end"] {
+        &.deduced {
+            &:before {
+                content: "(";
+            }
+
+            &:after {
+                content: ")";
+            }
+        }
     }
 }
 

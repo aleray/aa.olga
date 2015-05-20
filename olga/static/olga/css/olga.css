@@ -360,41 +360,6 @@ blockquote {
     opacity: 1 !important;
     pointer-events: auto !important;
 }
-#canvas > section > .wrapper section[typeof="aa:annotation"] {
-    border-top: 1px solid whitesmoke;
-    margin-top: -1px;
-    padding-bottom: 16px;
-    -webkit-transition: background-color 250ms ease-out 0s;
-       -moz-transition: background-color 250ms ease-out 0s;
-         -o-transition: background-color 250ms ease-out 0s;
-        -ms-transition: background-color 250ms ease-out 0s;
-            transition: background-color 250ms ease-out 0s;
-}
-#canvas > section > .wrapper section[typeof="aa:annotation"].active {
-    background-color: paleGreen;
-}
-#canvas > section > .wrapper section[typeof="aa:annotation"] span[property="aa:begin"],
-#canvas > section > .wrapper section[typeof="aa:annotation"] span[property="aa:end"] {
-    color: gray;
-    font-size: smaller;
-}
-#canvas > section > .wrapper section[typeof="aa:annotation"] span[property="aa:begin"]:hover,
-#canvas > section > .wrapper section[typeof="aa:annotation"] span[property="aa:end"]:hover {
-    cursor: pointer;
-    color: blue;
-}
-#canvas > section > .wrapper section[typeof="aa:annotation"] span[property="aa:begin"]:after {
-    content: "\00A0\2192\00A0";
-}
-#canvas > section > .wrapper section[typeof="aa:annotation"] span[property="aa:begin"]:nth-last-child(2):after {
-    content: "\00A0\2192\00A0 ?";
-}
-#canvas > section > .wrapper section[typeof="aa:annotation"] span[property="aa:end"].deduced:before {
-    content: "(";
-}
-#canvas > section > .wrapper section[typeof="aa:annotation"] span[property="aa:end"].deduced:after {
-    content: ")";
-}
 #canvas > section.focused .menu-top,
 #canvas > section.focused .menu-left {
     display: block;
@@ -455,6 +420,41 @@ blockquote {
 }
 #canvas > section ol {
     list-style: decimal inside;
+}
+section[typeof="aa:annotation"] {
+    border-top: 1px solid whitesmoke;
+    margin-top: -1px;
+    padding-bottom: 16px;
+    -webkit-transition: background-color 250ms ease-out 0s;
+       -moz-transition: background-color 250ms ease-out 0s;
+         -o-transition: background-color 250ms ease-out 0s;
+        -ms-transition: background-color 250ms ease-out 0s;
+            transition: background-color 250ms ease-out 0s;
+}
+section[typeof="aa:annotation"].active {
+    background-color: paleGreen;
+}
+section[typeof="aa:annotation"] span[property="aa:begin"],
+section[typeof="aa:annotation"] span[property="aa:end"] {
+    color: gray;
+    font-size: smaller;
+}
+section[typeof="aa:annotation"] span[property="aa:begin"]:hover,
+section[typeof="aa:annotation"] span[property="aa:end"]:hover {
+    cursor: pointer;
+    color: blue;
+}
+section[typeof="aa:annotation"] span[property="aa:begin"]:after {
+    content: "\00A0\2192\00A0";
+}
+section[typeof="aa:annotation"] span[property="aa:begin"]:nth-last-child(2):after {
+    content: "\00A0\2192\00A0 ?";
+}
+section[typeof="aa:annotation"] span[property="aa:end"].deduced:before {
+    content: "(";
+}
+section[typeof="aa:annotation"] span[property="aa:end"].deduced:after {
+    content: ")";
 }
 .embed.hosted {
     position: relative;
