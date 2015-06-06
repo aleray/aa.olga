@@ -121,23 +121,30 @@ body {
     padding: 13px;
     overflow: auto;
 }
-#canvas {
+.main-area {
     position: fixed;
     right: 290px;
     left: 0;
-    top: 35px;
+    top: 0;
     bottom: 0;
-    overflow: auto;
     -webkit-transition: all 250ms ease-out 0s;
        -moz-transition: all 250ms ease-out 0s;
          -o-transition: all 250ms ease-out 0s;
         -ms-transition: all 250ms ease-out 0s;
             transition: all 250ms ease-out 0s;
 }
-.show-tool #canvas {
+#canvas {
+    position: absolute;
+    right: 0;
+    left: 0;
+    top: 50px;
+    bottom: 0;
+    overflow: auto;
+}
+.show-tool .main-area {
     left: 290px;
 }
-.hide-sidebar #canvas {
+.hide-sidebar .main-area {
     right: 0;
 }
 #canvas > .wrapper {
@@ -145,11 +152,11 @@ body {
     height: 100%;
 }
 #timeline {
-    position: fixed;
+    position: absolute;
     left: 40px;
-    top: 0;
-    right: 0;
-    height: 30px;
+    top: 10px;
+    right: 40px;
+    height: 40px;
     overflow: auto;
 }
 /* }}} */
@@ -535,7 +542,7 @@ body {
 }
 .controls a {
     color: #000;
-    font-size: 16px;
+    font-size: 12px;
 }
 .controls a.fa:hover {
     cursor: pointer;
@@ -547,11 +554,9 @@ body {
     cursor: initial;
 }
 .controls .timer {
-    display: inline-block;
-    width: 160px;
-    margin-left: 5px;
     font-family: "News Cycle", sans;
-    font-size: 11px;
+    font-size: 9px;
+    line-height: 16px;
 }
 .controls.hidden {
     display: none;
@@ -831,17 +836,25 @@ img {
     display: none;
 }
 #faux-seek-bar {
-    display: inline-block;
+    display: block;
     position: relative;
-    height: 9px;
+    height: 1px;
     border: 1px solid #ccc;
-    width: 100px;
+    margin-top: 8px;
 }
 #faux-seek-bar-interior {
-    background-color: blue;
-    width: 50px;
+    background-color: white;
+    display: block;
+    width: 8px;
+    height: 8px;
+    border: 1px solid #ccc;
+    -webkit-border-radius: 50%;
+       -moz-border-radius: 50%;
+            border-radius: 50%;
     position: absolute;
-    left: 0;
-    top: 0;
-    bottom: 0;
+    left: 50%;
+    top: -5px;
+}
+.panzoom img {
+    max-width: initial;
 }

@@ -666,7 +666,7 @@ window.AA = window.AA || {};
                 this.$el.find('.next').toggleClass("disabled", !this.nextEvent());
                 this.$el.find('.previous').toggleClass("disabled", !this.previousEvent());
                 this.$el.find('#seek-bar').val( 100 / this.duration()  * this.driver.currentTime() );
-                this.$el.find('#faux-seek-bar-interior').css("width", 100 / this.duration()  * this.driver.currentTime() + "px" );
+                this.$el.find('#faux-seek-bar-interior').css("left", 100 / this.duration()  * this.driver.currentTime() + "%" );
             } else {
                 this.$el.find(".controls").addClass("hidden");
             }
