@@ -5,6 +5,7 @@
     
         var templates = {
             img:           _.template('<img src="<%= uri %>" />'),
+            //img:           _.template('<% if (options.zoomable) { %><div class="panzoom"><a href="<%= uri %>" rel="zoomable" title="Click to zoom in."><img src="<%= uri %>"></a></div><script>$.panzoom();</script><% } else { %><img src="<%= uri %>" /><% } %>'),
             html5video:    _.template('<video class="player" controls="true" preload src="<%= uri %>" />'),
             html5audio:    _.template('<% if (options.small) { %><div class="mini-player paused" rel="<%= uri %>" style="width:32px;height:32px" /></div><audio class="player" src="<%= uri %>" /><% } else { %><audio class="player" controls src="<%= uri %>" /><% } %>'),
             iframe:        _.template('<iframe src="<%= uri %>"></iframe>'),
