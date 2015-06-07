@@ -17,13 +17,12 @@ setup(
     ],
     include_package_data = True,
     install_requires=[
-        'django-tastypie==0.9.15',
-        'django-guardian==1.1.1',
-        'django-compressor==1.4',
+        'django-tastypie',
+        'django-guardian==1.3',
         'GitPython==0.1.7'
     ],
     dependency_links=[
-        'git+git://github.com/PaulUithol/backbone-tastypie.git@84acd7b33f73cee98088f5d851e2e6df7443adf6'
+        'https://github.com/django-tastypie/django-tastypie/archive/master.zip#egg=django-tastypie'
     ],
     classifiers=[
         'Development Status :: 2 - Pre-Alpha',
