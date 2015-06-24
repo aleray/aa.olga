@@ -1,5 +1,4 @@
 {% extends "olga/base.html" %}
-{% load compress %}
 
 {% block extrahead %}
 {{ block.super }}
@@ -35,9 +34,6 @@
 <link rel="stylesheet" href="{{ STATIC_URL }}components/mediaelement/build/mediaelementplayer.css" />
 
 <link rel="stylesheet" href="{{ STATIC_URL }}olga/css/olga.css" />
-{% endcompress %}
-{% endif %}
-
 <style>
 body {
     width: inherit;
@@ -65,17 +61,17 @@ article#canvas {
 {% block body %}
 <header id="sidebar">
     <div id="site-meta-container">
-        
+
     </div>
     <div id="user-meta-container">
-        
+
     </div>
     <div id="page-meta-container">
-        
+
     </div>
 </header>
 <div id="timeline">
-    
+
 </div>
 <article id="canvas">
 </article>
