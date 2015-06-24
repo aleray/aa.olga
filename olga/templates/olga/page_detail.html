@@ -1,11 +1,16 @@
 {% extends "olga/base.html" %}
 
 
+{% load olga_tags %}
+
+
 {% block extrahead %}
 <script src="{{ STATIC_URL }}components/pace/pace.js"></script>
 <link rel="stylesheet" href="{{ STATIC_URL }}components/pace/themes/pace-theme-minimal.css">
 
 {{ block.super }}
+
+{% metadata %}
 
 <script type="text/template" id="site-view-template">
 {% include "olga/partials/site-view.html" %}
@@ -79,6 +84,7 @@
 
 {% block body %}
 <aside id="tools">
+    blabla
     <i class="toggleDrawer fa fa-bars"></i>
     <div class="tabs sidebar__wrapper">
         <ul>
