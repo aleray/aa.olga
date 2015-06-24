@@ -14,6 +14,7 @@ setup(
     packages=[
         'olga',
         'olga.backends',
+        'olga.templatetags',
     ],
     include_package_data = True,
     install_requires=[
