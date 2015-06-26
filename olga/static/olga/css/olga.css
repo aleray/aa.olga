@@ -407,6 +407,7 @@ blockquote {
 }
 
 #canvas > section.controls-hidden .controls { display: none; }
+#canvas > section.play-hidden .play { display: none; }
 
 /* FIXME this is a stop gap solution: the collapsed box will show the original
  * box as well, as you hover over it It would be better to do a solution where
