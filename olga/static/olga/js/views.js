@@ -603,6 +603,8 @@ window.AA = window.AA || {};
         previousEvent: function() {
             var currentTime = this.driver.currentTime();
             var sortedEvents = _.sortBy(this.driver.getTrackEvents(), "end");
+            // we need to walk back in time to find the closest event, so we reverse:
+            sortedEvents.reverse();
             // returns undefined if no such element encountered:
             return _.find(sortedEvents, function(event){ return currentTime > event.start; });
 
