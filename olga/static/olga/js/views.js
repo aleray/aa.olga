@@ -12,7 +12,7 @@ window.AA = window.AA || {};
 
     AA.PopUpView = Backbone.View.extend({
         tagName: 'div',
-        attributes: { class: 'popup-wrapper' },
+        attributes: { 'class': 'popup-wrapper' },
         events: {
             'click input[value="cancel"]': 'remove',
             'submit #dialog-form': 'submit',
@@ -1268,19 +1268,19 @@ window.AA = window.AA || {};
 
             this.cursorMenu.register ([
                 // Create Annotation Button
-                new AA.widgets.MenuButton ({title: 'new box', class: 'icon-new'})
+                new AA.widgets.MenuButton ({title: 'new box', 'class': 'icon-new'})
                     .on('click', this.addAnnotation.bind(this)),
 
                 // Create Organize annotations Button
-                new AA.widgets.MenuButton ({title: 'organize boxes', class: 'icon-pack'})
+                new AA.widgets.MenuButton ({title: 'organize boxes', 'class': 'icon-pack'})
                     .on('click', this.organizeAnnotations.bind(this)),
 
                 // Create Snapshot Button
-                new AA.widgets.MenuButton ({title: 'take a snapshot', class: 'icon-star'})
+                new AA.widgets.MenuButton ({title: 'take a snapshot', 'class': 'icon-star'})
                     .on('click', this.commit.bind(this)),
 
                 // Create Edit introduction Button
-                new AA.widgets.MenuButton ({title: 'edit introduction', class: 'icon-edit'})
+                new AA.widgets.MenuButton ({title: 'edit introduction', 'class': 'icon-edit'})
                     .on('click', function() {
                         if (AA.router.annotationCollectionView.cursorMenu.visible()) {
                             AA.router.annotationCollectionView.cursorMenu.hide ();
@@ -1290,16 +1290,16 @@ window.AA = window.AA || {};
                     }),
 
                 // Create Manage permissions Button
-                new AA.widgets.MenuButton ({title: 'manage permissions', class: 'icon-ok'})
+                new AA.widgets.MenuButton ({title: 'manage permissions', 'class': 'icon-ok'})
                     .on('click', this.editPermissions.bind(this)),
 
                 // Create Set About Value Button
-                new AA.widgets.MenuButton({title: 'drag to connect', class: 'icon-target'})
+                new AA.widgets.MenuButton({title: 'drag to connect', 'class': 'icon-target'})
                     .draggable({ helper: "clone" })
                     .attr('href', document.location.origin + document.location.pathname),
 
                 // Create Set About Value Button
-                new AA.widgets.MenuButton({title: 'view the page source', class: 'icon-target'})
+                new AA.widgets.MenuButton({title: 'view the page source', 'class': 'icon-target'})
                     .on('click', this.viewSource.bind(this)),
             ]);
 
