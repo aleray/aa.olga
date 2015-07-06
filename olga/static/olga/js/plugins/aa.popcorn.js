@@ -3,7 +3,7 @@
         _setup : function(track) {
         },
         start : function(event, track) {
-            //console.log("start", this);
+            //console.log("start", track.start, track.$el[0], this);
             track.$el.trigger({
                                   type : "start",
                                   time:   track.start,
@@ -11,7 +11,7 @@
                               });
         },
         end : function(event, track) {
-            //console.log("end", this);
+            //console.log("end", track.end, track.$el[0], this);
             track.$el.trigger({
                                   type:   "end",
                                   last:   track._id === _.last(this.getTrackEvents())._id,
