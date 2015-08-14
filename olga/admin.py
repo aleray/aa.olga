@@ -1,3 +1,5 @@
+from functools import partial
+
 from django.contrib import admin
 from olga.models import Annotation, Page
 from guardian.admin import GuardedModelAdmin
@@ -61,6 +63,13 @@ class PageAdmin(GuardedModelAdmin):
     inlines = [
         AnnotationInline,
     ]
+
+    # FIXME: handles Django 1.8 drop of support for `self.queryset`. This should
+    # be handled by Django Guardian but this is a bug not solved yet. See
+    # <https://github.com/django-guardian/django-guardian/issues/307>.
+    @property
+    def queryset(self):
+        return partial(self.get_queryset)
 
 
 admin.site.register(Annotation, AnnotationAdmin)
