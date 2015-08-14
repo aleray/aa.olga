@@ -19,7 +19,7 @@ setup(
     include_package_data = True,
     install_requires=[
         'django-tastypie',
-        'django-guardian==1.3',
+        'django-guardian>=1.3',
         'GitPython==0.1.7'
     ],
     classifiers=[
