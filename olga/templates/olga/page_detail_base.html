@@ -1,0 +1,173 @@
+{% extends "olga/base.html" %}
+
+
+{% load olga_tags %}
+
+
+{% block extrahead %}
+<script src="{{ STATIC_URL }}components/pace/pace.js"></script>
+<link rel="stylesheet" href="{{ STATIC_URL }}components/pace/themes/pace-theme-minimal.css">
+
+{{ block.super }}
+
+{% metadata %}
+
+<script type="text/template" id="site-view-template">
+{% include "olga/partials/site-view.html" %}
+</script>
+
+<script type="text/template" id="tools-view-template">
+{% include "olga/partials/tools-view.html" %}
+</script>
+
+<script type="text/template" id="page-view-template">
+{% include "olga/partials/page-view.html" %}
+</script>
+
+<script type="text/template" id="user-view-template">
+{% include "olga/partials/user-view.html" %}
+</script>
+
+<script type="text/template" id="timeline-player-template">
+{% include "olga/partials/timeline-player.html" %}
+</script>
+
+<script type="text/template" id="annotation-view-template">
+{% include "olga/partials/annotation-view.html" %}
+</script>
+
+<script type="text/template" id="annotation-edit-template">
+{% include "olga/partials/annotation-edit.html" %}
+</script>
+
+<script type="text/template" id="annotation-player-template">
+{% include "olga/partials/annotation-player.html" %}
+</script>
+
+<script type="text/template" id="revisions-browser-template">
+{% include "olga/partials/revisions-browser.html" %}
+</script>
+
+<script type="text/template" id="login-view-template">
+{% include "olga/partials/login-view.html" %}
+</script>
+
+<script type="text/template" id="popup-view-template">
+{% include "olga/partials/popup-view.html" %}
+</script>
+
+<script type="text/template" id="edit-introduction-view-template">
+{% include "olga/partials/edit-introduction-view.html" %}
+</script>
+
+<script type="text/template" id="edit-permissions-view-template">
+{% include "olga/partials/edit-permissions-view.html" %}
+</script>
+
+<script type="text/template" id="import-export-view-template">
+{% include "olga/partials/import-export-view.html" %}
+</script>
+{% endblock %}
+
+
+{% block css %}
+{{ block.super }}
+
+<!--<link rel="stylesheet" href="{{ STATIC_URL }}components/jquery-ui/themes/base/minified/jquery-ui.min.css">-->
+<link rel="stylesheet" href="{{ STATIC_URL }}components/font-awesome/css/font-awesome.css">
+
+<link rel="stylesheet" href="{{ STATIC_URL }}olga/css/olga.css" />
+
+<link rel="stylesheet" href="http://lokeshdhakar.com/projects/lightbox2/css/lightbox.css">
+{% endblock %}
+
+
+{% block body %}
+<aside id="tools">
+    blabla
+    <i class="toggleDrawer fa fa-bars"></i>
+    <div class="tabs sidebar__wrapper">
+        <ul>
+            <li><a href="#help">Help</a></li>
+            <li><a href="#commits">History</a></li>
+        </ul>
+        <div id="help">{% include "olga/partials/help.html" %}</div>
+        <div id="commits">bla</div>
+    </div>
+</aside>
+
+<header id="sidebar">
+    <i class="toggleDrawer fa fa-bars"></i>
+    <div class="sidebar__wrapper">
+        <div id="site-meta-container"></div>
+        <div id="user-meta-container"></div>
+        <div id="page-meta-container"></div>
+    </div>
+</header>
+
+<div class="main-area">
+    <div id="timeline"></div>
+
+    <article id="canvas" class="anonymous"></article>
+</div>
+
+<div class="error">
+    <noscript>
+        This page requires JavaScript. Apologies from OLGA.
+    </noscript>
+</div>
+
+<div id="revisions_browser_ctrl"></div>
+{% endblock %}
+
+
+{% block js %}
+{{ block.super }}
+
+<!-- Disabled for now as we don't use it -->
+<!--<script src="{{ STATIC_URL }}components/typogr.js/typogr.min.js"></script>-->
+
+<script src="{{ STATIC_URL }}components/jquery/dist/jquery.min.js"></script>
+<script src="{{ STATIC_URL }}components/jquery-ui/ui/minified/jquery-ui.custom.min.js"></script>
+
+<!--
+lodash is a superset of underscore. We use it as it provides a couple of
+additional useful functions, and it is supposed to be faster. In case there is
+a bug with backbone (which relies on underscore), we can use lodash underscore
+compatible build. See <https://github.com/lodash/lodash/wiki/build-differences>
+-->
+<!--<script src="{{ STATIC_URL }}components/underscore/underscore.js"></script>-->
+<script src="{{ STATIC_URL }}components/lodash/dist/lodash.js"></script>
+
+<script src="{{ STATIC_URL }}components/backbone/backbone.js"></script>
+<script src="{{ STATIC_URL }}components/backbone-tastypie/backbone_tastypie/static/js/backbone-tastypie.js"></script>
+<script src="{{ STATIC_URL }}components/backbone-associations/backbone-associations.js"></script>
+
+<script src="{{ STATIC_URL }}components/popcorn-js/popcorn-complete.js"></script>
+<script src="{{ STATIC_URL }}components/moment/moment.js"></script>
+<script src="{{ STATIC_URL }}olga/js/plugins/aa.popcorn.js"></script>
+
+<script src="{{ STATIC_URL }}components/subtitles-parser/subtitles.parser.min.js"></script>
+
+<script src="{{ STATIC_URL }}components/jquery.contextual/aa.jquery.contextual.js"></script>
+<script src="{{ STATIC_URL }}components/jQuery-caret-utilities/jquery.caret.js"></script>
+<script src="{{ STATIC_URL }}components/jquery.hotkeys/jquery.hotkeys.js"></script>
+
+<script src="{{ STATIC_URL }}components/js-yaml-front-matter/build.js"></script>
+<script src="{{ STATIC_URL }}components/js-yaml/js-yaml.js"></script>
+
+<script src="{{ STATIC_URL }}olga/js/plugins/aa.jquery.renderResources.js"></script>
+<script src="{{ STATIC_URL }}olga/js/markup/markdown.js"></script>
+
+<script src="{{ STATIC_URL }}lib/js/b64-utf8.js"></script>
+
+<script src="{{ STATIC_URL }}olga/js/widgets.js"></script>
+<script src="{{ STATIC_URL }}olga/js/utils.js"></script>
+<script src="{{ STATIC_URL }}olga/js/models.js"></script>
+<script src="{{ STATIC_URL }}olga/js/collections.js"></script>
+<script src="{{ STATIC_URL }}olga/js/views.js"></script>
+<script src="{{ STATIC_URL }}olga/js/global-events.js"></script>
+<script src="{{ STATIC_URL }}olga/js/router.js"></script>
+<script src="{{ STATIC_URL }}olga/js/error-handling.js"></script>
+<script src="{{ STATIC_URL }}olga/js/app.js"></script>
+{% endblock %}
