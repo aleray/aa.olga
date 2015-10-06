@@ -1169,6 +1169,8 @@ window.AA = window.AA || {};
             this.renderPlayer();
         },
         registerChildrenAsDrivers: function() {
+            var that = this;
+
             var hostedUris = this.$el.find(".embed.hosted").map(function(i, el) {
                 return $(el).attr("data-uri");
             }).get();
@@ -1181,6 +1183,34 @@ window.AA = window.AA || {};
                 // strip media-query like #t=3:
                 uri = uri.match(/[^\#]+/)[0];
                 AA.router.multiplexView.registerDriver(uri);
+            }
+
+            // FIXME: this is rather experimental and buggy
+            // It allows to synchronize the audio/video embeds with their
+            // driver when one seeks, pause or play them.
+            if (this.$el.hasClass('sync-embeds')) {
+                for (var i=0; i<mediaUris.length; i++) {
+                    var uri = mediaUris[i];
+                    var driver = AA.router.multiplexView.getDriver(uri);
+                    if (typeof driver !== "undefined") {
+                        driver.on('seeked', function(event) {
+                            var begin = parseFloat($(this.media).parents('[data-begin]').attr('data-begin'));
+                            var nextTime = begin + this.currentTime();
+                            that.driver.currentTime(nextTime); 
+                        });
+                        driver.on('ended', function(event) {
+                            console.log("ended");
+                        });
+                        driver.on('pause', function(event) {
+                            if (this.currentTime() != this.duration()) {
+                                that.driver.pause(); 
+                            };
+                        });
+                        driver.on('play', function(event) {
+                            that.driver.play(); 
+                        });
+                    }
+                }
             }
         },
         deleteAnnotationEvents: function() {
