@@ -309,7 +309,7 @@ window.AA = window.AA || {};
             this.listenTo(this.model, 'change', this.render);
         },
         render: function() {
-            var context = _.clone(this.model.attributes)
+            var context = _.clone(this.model.attributes);
             context.introduction = markdown.toHTML(context.introduction, "Aa");
 
             this.$el.html( this.template( context ) );
@@ -470,7 +470,9 @@ window.AA = window.AA || {};
                     if ($(hash).length === 0) {
                         return null;
                     }
-                    this.drivers[uri] = Popcorn.baseplayer( hash );
+                    var wrapper = Popcorn.HTMLNullVideoElement( hash );
+                    wrapper.src = "#t=,6000000";
+                    this.drivers[uri] = Popcorn( wrapper );
                     this.drivers[uri].media.src = uri; // just to have some reference from the popcorn object to the driver
                 } else {
                     // we assume that the driver is a media element we can manipulate
