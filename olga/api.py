@@ -235,13 +235,13 @@ class PageResource(ModelResource):
                 if key in data:
                     del data[key]
 
-            #  try:
+            try:
                 #import ipdb; ipdb.set_trace()
-            backend.commit('olga/Page/%s.json' % kwargs['slug'], self.serialize(None, data, 'application/json'), message=msg)
-            #  except:
-            #      # Main case: the content hasn't changed between two calls, and
-            #      # git refuse to commit because of this.
-            #      pass
+                backend.commit('olga/Page/%s.json' % kwargs['slug'], self.serialize(None, data, 'application/json'), message=msg)
+            except:
+                # Main case: the content hasn't changed between two calls, and
+                # git refuse to commit because of this.
+                pass
 
         return bundle
 
