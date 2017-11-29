@@ -20,7 +20,10 @@ setup(
     install_requires=[
         'django-tastypie',
         'django-guardian>=1.3',
-        'GitPython==0.1.7'
+        'GitPython==0.1.7',
+        'Markdown',
+        'mdx_semanticdata',
+        'mdx_semanticwikilinks'
     ],
     classifiers=[
         'Development Status :: 2 - Pre-Alpha',

@@ -1,5 +1,7 @@
+import markdown
 from django import template
 from django.contrib.sites.shortcuts import get_current_site
+from django.utils.safestring import mark_safe
 from ..models import Page
 register = template.Library()
 
@@ -21,4 +23,13 @@ def metadata(context):
         "request": context.request,
         "current_site": current_site
     }
+
+
+@register.filter
+def markdownify(text):
+    extensions = ['semanticwikilinks', 'semanticdata', 'markdown.extensions.extra']
+    html = markdown.markdown(text, extensions=extensions)
+
+    return mark_safe(html)
+
 

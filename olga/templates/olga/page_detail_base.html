@@ -84,7 +84,6 @@
 
 {% block body %}
 <aside id="tools">
-    blabla
     <i class="toggleDrawer fa fa-bars"></i>
     <div class="tabs sidebar__wrapper">
         <ul>
@@ -108,7 +107,13 @@
 <div class="main-area">
     <div id="timeline"></div>
 
-    <article id="canvas" class="anonymous"></article>
+    <article id="canvas" class="anonymous">
+	<noscript>
+	{% for annotation in object.annotation_set.all %}
+		{{ annotation.body|markdownify }}
+	{% endfor %}
+	</noscript>
+    </article>
 </div>
 
 <div class="error">
